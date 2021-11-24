@@ -21,7 +21,7 @@ import com.capgemini.service.TrainingCourseService;
 
 
 @RestController
-public class TrainingCourseController {
+public class TrainingCourseController implements ITrainingCourseController {
 	private static final Logger LOG = LoggerFactory.getLogger(TrainingCourseController.class);
 
 	@Autowired

@@ -21,7 +21,7 @@ import com.capgemini.model.NGO;
 import com.capgemini.service.NGOService;
 
 @RestController
-public class NGOController {
+public class NGOController implements INGOController{
 
 	@Autowired
 	private NGOService ingoService;
@@ -98,7 +98,7 @@ public class NGOController {
 //	Get NGO By Motive
 //	http://localhost:8082/getmgobymotive/ngomotive
 	@GetMapping("getmgobymotive/{ngomotive}")
-	public ResponseEntity<List<NGO>> getNGOByMotive(@PathVariable(name="ngomotive")String ngoMotive){
+	public ResponseEntity<List<NGO>> viewNGOByMotive(@PathVariable(name="ngomotive")String ngoMotive){
 		LOG.info("Controller getNgoByMotive");
 		List<NGO> ngo = ingoService.viewNGOByMotive(ngoMotive);// line	
 		HttpHeaders headers = new HttpHeaders();
@@ -113,7 +113,7 @@ public class NGOController {
 //	Get Ngo By Location
 //	http://localhost:8082/getmgobylocatio/ngolocation
 	@GetMapping("getngobylocation/{ngolocation}")
-	public ResponseEntity<List<NGO>> getNGOByLocation(@PathVariable(name="ngolocation")String ngoLocation){
+	public ResponseEntity<List<NGO>> viewNGOByLocation(@PathVariable(name="ngolocation")String ngoLocation){
 		LOG.info("Controller getNgoByLocation");
 		List<NGO> ngo = ingoService.viewNGOByLocation(ngoLocation);// line
 		HttpHeaders headers = new HttpHeaders();
@@ -121,5 +121,9 @@ public class NGOController {
 		ResponseEntity<List<NGO>> response= new ResponseEntity<List<NGO>>(ngo,headers,HttpStatus.OK);
 	return response;
 }
+
+
+	
+
 }
 

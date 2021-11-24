@@ -23,7 +23,7 @@ import com.capgemini.service.TraineeServiceImpl;
 
 
 @RestController
-public class TraineeController {
+public class TraineeController implements ITraineeController {
 	private static final Logger LOG = LoggerFactory.getLogger(TraineeController.class);
 
 	@Autowired

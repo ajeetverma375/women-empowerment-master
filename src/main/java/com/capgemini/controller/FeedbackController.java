@@ -24,7 +24,7 @@ import com.capgemini.service.IFeedBackService;
 
 
 @RestController
-public class FeedbackController {
+public class FeedbackController implements IFeedBackController{
 
 	private static final Logger LOG = LoggerFactory.getLogger(FeedbackController.class);
 

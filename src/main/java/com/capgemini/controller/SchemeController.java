@@ -23,7 +23,7 @@ import com.capgemini.model.Scheme;
 import com.capgemini.service.ISchemeService;
 
 @RestController
-public class SchemeController {
+public class SchemeController implements ISchemeController{
 
 	private static final Logger LOG = LoggerFactory.getLogger(SchemeController.class);
 

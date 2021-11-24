@@ -17,7 +17,7 @@ import com.capgemini.model.User;
 import com.capgemini.service.UserService;
 
 @RestController
-public class UserController {
+public class UserController implements IUserController {
 	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 	
 	@Autowired
