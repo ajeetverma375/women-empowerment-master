@@ -28,6 +28,7 @@ public class TraineeController implements ITraineeController {
 	@Autowired
 	private TraineeServiceImpl traineeservice;
 
+	// This method will add the Trainee
 	@PostMapping("/addtrainee")
 	public ResponseEntity<Trainee> addTrainee(@RequestBody Trainee trainee) {
 		LOG.info("addTrainee");
@@ -42,6 +43,7 @@ public class TraineeController implements ITraineeController {
 	// ------------------------------------------------------------------------------------------
 
 	// http://localhost:8082/updateemptrainee
+    // This method will update Trainee
 	@PutMapping("/updatetrainee")
 	public ResponseEntity<Trainee> updateTrainee(@RequestBody Trainee trainee) {
 		LOG.info("updateTrainee");
@@ -56,6 +58,7 @@ public class TraineeController implements ITraineeController {
 	// ------------------------------------------------------------------------------------------
 
 	// http://localhost:8082/viewTrainee
+	// This method retrieves Trainee by courseId
 	@GetMapping("/viewTraineeByCourseId")
 	public ResponseEntity<Trainee> viewTrainee(int courseId) {
 		LOG.info("viewTraineeByCourseId");
@@ -69,7 +72,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
 
-	
+	// This method retrieves all Trainee from database
 	@GetMapping("/viewAllTrainee")
 	public ResponseEntity<List<Trainee>> viewAllTrainee() {
 		LOG.info("viewAllTraineesByLocation");
@@ -83,6 +86,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
 
+	// This method deletes Trainee by courseId
 	@DeleteMapping(path = "deleteTraineeByCourseId/{courseId}")
 	public ResponseEntity<Trainee> deleteTrainee(@PathVariable(name = "courseId") int courseId)
 			throws NoSuchRecordException {
@@ -97,6 +101,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
  
+	// This method will retrieve of Trainee by location
 	@GetMapping("/viewAllTraineesByLocation/{location}")
 	public ResponseEntity<List<Trainee>> viewAllTraineesByLocation(String location) {
 		LOG.info("viewAllTraineesByLocation");
@@ -110,6 +115,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
 
+	// THis method will retrieve data of Trainee by aadharNo
 	@GetMapping("/viewbyaadharno/{aadharNo}")
 	public ResponseEntity<Trainee> viewTraineeByAadhar(@PathVariable long aadharNo) {
 		LOG.info("getTraineeByAadharNo");
@@ -124,6 +130,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
 
+	// This method will retrieve data of Trainee by FirstName
 	@GetMapping("/viewTraineeByFirstName/{firstName}")
 	public ResponseEntity<List<Trainee>> viewTraineeByFirstName(@PathVariable String firstName) {
 		LOG.info("getTraineeByAadharNo");
@@ -137,6 +144,8 @@ public class TraineeController implements ITraineeController {
 	}
 
 	// ------------------------------------------------------------------------------------------
+	
+	// This method will retrieve Trainee by LastName
 	@Override
 	@GetMapping("/viewTraineeByLastName/{lastName}")
 	public ResponseEntity<List<Trainee>> viewTraineeByLastName(@PathVariable String lastName) {

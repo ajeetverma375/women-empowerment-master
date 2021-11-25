@@ -21,9 +21,6 @@ import com.capgemini.exception.NotStrongPasswordException;
 import com.capgemini.model.Trainee;
 import com.capgemini.repository.TraineeRepository;
 
-
-
-
 @Service
 public class TraineeServiceImpl implements ITraineeService {
 	private static final Logger LOG = LoggerFactory.getLogger(TraineeServiceImpl.class);
@@ -31,7 +28,7 @@ public class TraineeServiceImpl implements ITraineeService {
 	@Autowired
 	private TraineeRepository traineeRepository;
 
-
+	// This method will add Trainee to database
 	@Override
 	public Trainee addTrainee(Trainee course) {
 		if (course.getTraineeId() != null && course.getFirstName() != null && course.getLastName() != null
@@ -77,6 +74,7 @@ public class TraineeServiceImpl implements ITraineeService {
 
 	// ------------------------------------------------------------------------------------------
 
+	// This method update the Trainee
 	@Override
 	@Transactional
 	public Trainee updateTrainee(Trainee course) {
@@ -93,6 +91,7 @@ public class TraineeServiceImpl implements ITraineeService {
 
 	// ------------------------------------------------------------------------------------------
 
+	//This method retrieve Trainee from database
 	@Override
 	public Trainee viewTrainee(int courseId) {
 		if (traineeRepository.existsById(courseId)) {
@@ -106,6 +105,7 @@ public class TraineeServiceImpl implements ITraineeService {
 
 	// ------------------------------------------------------------------------------------------
 
+	//This method retrieve All Trainee from database
 	@Override
 	public List<Trainee> viewAllTrainee() {
 		LOG.info("viewAllTrainee");
@@ -120,6 +120,7 @@ public class TraineeServiceImpl implements ITraineeService {
 
 	// ------------------------------------------------------------------------------------------
 
+	// This method delete Trainee by courseId
 	@Override
 	public Trainee deleteTrainee(int courseId) {
 		LOG.info("deleteTraineeByCourseId");
@@ -138,6 +139,7 @@ public class TraineeServiceImpl implements ITraineeService {
 	
 	// ------------------------------------------------------------------------------------------
 
+	//This method retrieve Trainee by Location
 	@Override
 	public List<Trainee> viewAllTraineesByLocation(String location) {
 		LOG.info("viewAllTraineesByLocation");
@@ -153,6 +155,7 @@ public class TraineeServiceImpl implements ITraineeService {
 
 	// ------------------------------------------------------------------------------------------
 
+	//This method retrieve Trainee by aadaharNo
 	@Override
 	public Trainee viewTraineeByAadhar(long aadharNo) {
 		LOG.info("viewTraineeByAadhar");
@@ -168,6 +171,7 @@ public class TraineeServiceImpl implements ITraineeService {
 	
 	// ------------------------------------------------------------------------------------------
 
+	// This method retrieve Trainee by FirstName
 	@Override
 	public List<Trainee> getTraineeByFirstName(String firstName) {
 		LOG.info("viewTraineeByFirstName");
@@ -183,6 +187,7 @@ public class TraineeServiceImpl implements ITraineeService {
 
 	// ------------------------------------------------------------------------------------------
 
+	// This method retrieve Trainee by LastName
 		@Override
 	public List<Trainee> getTraineeByLastName(String lastName) {
 			LOG.info("viewTraineeByLastName");
