@@ -19,7 +19,7 @@ private IUserRepository userRepository;
 	
 private User tempuser;
 private User temppassword;
-private Boolean isLoggedIn;
+
 
 	public User registerUser(User user) {	
 		LOG.info("register");
@@ -38,9 +38,12 @@ private Boolean isLoggedIn;
 		LOG.info("login");
 		this.tempuser = userRepository.findByUserName(username);
 		this.temppassword=userRepository.findByUserPassword(tempuser.getUserPassword());
+		
 		if (tempuser.getUserName().equalsIgnoreCase(username) && temppassword.getUserPassword().equals(password)) {
-			isLoggedIn = true;
+			
+			
 			return tempuser;
+			
 		}
 		throw new IncorrectLoginCredentialsException();
 	}

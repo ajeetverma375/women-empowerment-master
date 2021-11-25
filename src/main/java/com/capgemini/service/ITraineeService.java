@@ -18,5 +18,7 @@ public interface ITraineeService
 	Trainee deleteTrainee(int courseId);
 	List<Trainee> viewAllTraineesByLocation(String location);
 	Trainee viewTraineeByAadhar(long aadharNo);
+	List<Trainee> getTraineeByFirstName(String firstName);
+	List<Trainee> getTraineeByLastName(String lastName);
 
 }

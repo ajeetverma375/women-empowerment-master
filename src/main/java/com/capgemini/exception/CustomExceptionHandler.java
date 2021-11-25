@@ -206,5 +206,13 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<Object>(null, headers, HttpStatus.NOT_FOUND);
 	}
 	
+	@ExceptionHandler(InvalidUserNameException.class)
+	public ResponseEntity<Object> handleInvalidUserNameException() {
+		LOG.error("handleInvalidUserNameException");
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("message", "UserName is not valid");
+		return new ResponseEntity<Object>(null, headers, HttpStatus.NOT_FOUND);
+	}
+	
 	
 }

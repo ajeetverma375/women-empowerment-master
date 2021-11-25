@@ -71,9 +71,6 @@ public class Trainee
 	@Column(name="Location")
 	private String location;
 	
-	
-	
-	
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Training_course")
   	private TrainingCourse trainingCourse;

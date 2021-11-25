@@ -2,11 +2,14 @@ package com.capgemini.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="feedback_table")
@@ -30,21 +33,17 @@ public class FeedBack {
 	@Column
 	private	LocalDate feedbackdate;
 	
-//	@Column
-//	private User user;
 //	
-//	@Column
-//	private TrainingCourse training;
-//	
-//	@Column
-//	private Scheme scheme;
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "scheme")
+	private Scheme scheme;
 
 	public FeedBack() {
 		super();
 	}
 
 	public FeedBack(int feedBackId, int schemeRating, int schemeTrainingRating, int overallRating, String comments,
-			LocalDate feedbackdate) {
+			LocalDate feedbackdate,Scheme scheme) {
 		super();
 		this.feedBackId = feedBackId;
 		this.schemeRating = schemeRating;
@@ -52,6 +51,16 @@ public class FeedBack {
 		this.overallRating = overallRating;
 		this.comments = comments;
 		this.feedbackdate = feedbackdate;
+		this.scheme=scheme;
+	}
+
+
+	public Scheme getScheme() {
+		return scheme;
+	}
+
+	public void setScheme(Scheme scheme) {
+		this.scheme = scheme;
 	}
 
 	public int getFeedBackId() {
@@ -106,13 +115,12 @@ public class FeedBack {
 	public String toString() {
 		return "FeedBack [feedBackId=" + feedBackId + ", schemeRating=" + schemeRating + ", schemeTrainingRating="
 				+ schemeTrainingRating + ", overallRating=" + overallRating + ", comments=" + comments
-				+ ", feedbackdate=" + feedbackdate + "]";
+				+ ", feedbackdate=" + feedbackdate + ", scheme=" + scheme + "]";
 	}
-	
+
 
 	
+	
 
-	
-	
-	
+
 }

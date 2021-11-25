@@ -165,5 +165,36 @@ public class TraineeServiceImpl implements ITraineeService {
 			throw new NoSuchRecordException("Aadhar Number Does Not Exists");
 		}
 	}
+	
+	// ------------------------------------------------------------------------------------------
 
+	@Override
+	public List<Trainee> getTraineeByFirstName(String firstName) {
+		LOG.info("viewTraineeByFirstName");
+		List<Trainee> trainee = traineeRepository.findByFirstName(firstName);
+		if (trainee != null) {
+			LOG.info("viewTraineeByFirstName");
+			return trainee;
+		} else {
+			LOG.error("Trainee with this name: "+ firstName +"  Does Not Exists");
+			throw new NoSuchRecordException("Trainee with this name: "+ firstName +"  Does Not Exists");
+		}
+	}
+
+	// ------------------------------------------------------------------------------------------
+
+		@Override
+	public List<Trainee> getTraineeByLastName(String lastName) {
+			LOG.info("viewTraineeByLastName");
+			List<Trainee> trainee = traineeRepository.findByLastName(lastName);
+			if (trainee != null) {
+				LOG.info("viewTraineeByLastName");
+				return trainee;
+			} else {
+				LOG.error("Trainee with this name: "+ lastName +"  Does Not Exists");
+				throw new NoSuchRecordException("Trainee with this name: "+ lastName +"  Does Not Exists");
+			}
+	}
+
+		
 }

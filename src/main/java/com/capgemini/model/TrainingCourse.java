@@ -10,12 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-// enum CourseName{
-//	SOCIALAWARENESS,
-//	EMPOWERINGTHENATION,
-//	SEEKINGWOMENSRIGHT,
-//	PSYCHOLOGYOFPOLITICALACTIVISM
-//}
 
 @Entity
 @Table(name="training")
@@ -23,7 +17,7 @@ public class TrainingCourse {
 	 @Id
 	@GeneratedValue//for the generation of primary key
 	private int courseId;
-	// @Enumerated(EnumType.STRING)
+
 	
 	 @Column(name="course_Name" )
 	 private String courseName;
