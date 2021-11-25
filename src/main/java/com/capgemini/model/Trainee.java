@@ -13,6 +13,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 
@@ -53,7 +54,7 @@ public class Trainee
 	
 	@Column(name="Email" , nullable=false)
 	@NotEmpty
-	@Email
+	@Pattern(regexp=".+@.+\\.[a-z]+", message="Invalid email address!")
 	private String email;
 	
 	@Column(name="FamilyInfo" )
