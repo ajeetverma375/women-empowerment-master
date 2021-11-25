@@ -2,6 +2,8 @@ package com.capgemini.controller;
 
 import java.util.List;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.capgemini.exception.NoSuchRecordException;
 import com.capgemini.model.Trainee;
 import com.capgemini.service.TraineeServiceImpl;
@@ -54,6 +55,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
 
+	// http://localhost:8082/viewTrainee
 	@GetMapping("/viewTraineeByCourseId")
 	public ResponseEntity<Trainee> viewTrainee(int courseId) {
 		LOG.info("viewTraineeByCourseId");
@@ -67,6 +69,7 @@ public class TraineeController implements ITraineeController {
 
 	// ------------------------------------------------------------------------------------------
 
+	
 	@GetMapping("/viewAllTrainee")
 	public ResponseEntity<List<Trainee>> viewAllTrainee() {
 		LOG.info("viewAllTraineesByLocation");
@@ -93,7 +96,7 @@ public class TraineeController implements ITraineeController {
 	}
 
 	// ------------------------------------------------------------------------------------------
-
+ 
 	@GetMapping("/viewAllTraineesByLocation/{location}")
 	public ResponseEntity<List<Trainee>> viewAllTraineesByLocation(String location) {
 		LOG.info("viewAllTraineesByLocation");
@@ -148,3 +151,6 @@ public class TraineeController implements ITraineeController {
 	}
 
 }
+
+
+

@@ -4,11 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="scheme")
@@ -16,7 +13,7 @@ public class Scheme {
 	
 	@Id
 	@Column(name="id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer schemeId;
 	
 	@Column(name="scheme_name", nullable =false)
@@ -33,9 +30,7 @@ public class Scheme {
 	
 	@Column(name="scheme_objective")
 	String schemeObjective;
-	
 
-	
 	public Scheme() {
 		super();
 	}
