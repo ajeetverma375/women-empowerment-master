@@ -44,7 +44,7 @@ public class TraineeController implements ITraineeController {
     // This method will update Trainee
 	@PutMapping("/updatetrainee")
 	public ResponseEntity<Trainee> updateTrainee(@RequestBody Trainee trainee) {
-		LOG.info("updateTrainee");
+		LOG.info("updateTrainee");    
 		Trainee updateTrainee = traineeservice.updateTrainee(trainee);
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("message", "" + trainee + " updated successfully");

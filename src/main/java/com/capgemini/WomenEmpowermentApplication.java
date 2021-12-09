@@ -18,5 +18,4 @@ public class WomenEmpowermentApplication {
 		SpringApplication.run(WomenEmpowermentApplication.class, args);
 		LOG.info("End");
 	}
-
 }
